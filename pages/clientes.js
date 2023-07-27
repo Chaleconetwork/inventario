@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Fetch } from '@/utils/api/fetch'
+import { fetchApi } from "@/services/fetch"
 import Image from 'next/image'
 import CustomTHead from "@/components/CustomTHead/CustomTHead"
 import Searcher from "@/components/Searcher/Searcher"
@@ -10,11 +10,14 @@ export default function clientes() {
     const url = 'https://rickandmortyapi.com/api/character?page=1'
 
     const [data, setData] = useState([])
-
     const getClientes = async () => {
-        const response = await Fetch.getApi(url)
+        const response = await fetchApi.getApi(url)
         setData(response.results)
-        console.log(response)
+    }
+
+    const [inputValue, setInputValue] = useState('')
+    const handleChange = e => {
+        setInputValue(e.target.value)
     }
 
     useEffect(() => {
@@ -24,9 +27,10 @@ export default function clientes() {
     return (
         <div className="h-full overflow-scroll">
             <h1 className='text-sky-500 text-3xl'>Clientes</h1>
-            <Searcher />
+            <Searcher handleChange={handleChange} />
+            {console.log(inputValue)}
             <div>
-                <table className="min-w-full border m-5 mx-auto border-gray-200">
+                <table className="min-w-full border my-5 border-gray-200">
                     <CustomTHead headerTable={clientesHeader} />
                     <tbody>
                         {

@@ -1,7 +1,4 @@
-import { Storage } from '@/context/usuarioContext'
-import { useEffect } from 'react';
-
-export const Fetch = {
+export const fetchApi = {
     async getApi(url) {
         // const token = Storage.get()?.token
         let jsonData;

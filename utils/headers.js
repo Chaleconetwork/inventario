@@ -1,0 +1,1 @@
+export const ventasHeader = ['Id', 'Producto', "Cantidad", "Precio Unitario", "Total", "Fecha", "Acciones"]

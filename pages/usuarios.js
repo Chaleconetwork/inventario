@@ -10,9 +10,9 @@ export default function usuarios() {
             <h1 className="text-sky-500 text-3xl">
                 Usuarios
             </h1>
-            <div>
-                <CustomTable headerTable={usuarioHeader} datosTable={usuarioDatos} />
-            </div>
+            <table className="min-w-full my-5">
+                <CustomTable headerTable={usuarioHeader} />
+            </table>
         </div>
     )
 }
